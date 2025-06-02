@@ -7,6 +7,6 @@ A tensor can be defined as a layout and a engine, where the engine is a pointer 
 
 For example, a 2D (M x N) tensor in pytorch with a row-major format we have the stride is (N, 1) so to access element (i, j) we calculate the dot-product (i,j)*(N, 1)=Ni+j. To confirm our intution we see that varying over dimension i, we jump over N elements (bad cache locality), while to go over a row (dimension j), the memory is contiguous (good cache locality).
 
-So in row-major formats (C/C++/torch/...) reductions over dimension i are slow, while reductions over dimension j are fast. The reverse is true for column-major (see Fortran, MATLAB, R, ...) as it's stride is (1, M).
+So in row-major formats (C/C++/torch/numpy...) reductions over dimension i are slow, while reductions over dimension j are fast. The reverse is true for column-major (see Eigen, Fortran, MATLAB, R, ...) as it's stride is (1, M).
 
 ![motivation](static/intro.png)
